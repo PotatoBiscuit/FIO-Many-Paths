@@ -14,7 +14,7 @@
 <tw-storydata name="FiO: Many Paths, One Adventurer" startnode="1" creator="Twine" creator-version="2.3.1" ifid="3340B499-22EC-441F-9B51-89D93884E45B" zoom="0.6" format="Harlowe" format-version="2.1.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-sidebar
 {
   border-right: 2px solid grey;
-  padding-right: 10px;
+  padding-right: 0px;
   padding-top: 80px;
   width: 20%;
   height: 100%;
@@ -24,16 +24,56 @@
   text-align: right;
 }
 
+.undo
+{
+  padding-right: 10px;
+  padding-bottom: 0px;
+}
+
+.sidebar-link
+{
+  background-image:
+	linear-gradient(to right, rgba(0,0,0,0), rgba(15,15,15,1))
+  ;
+  
+  color: #e6e6e6;
+  text-align: center;
+  float: right;
+  width: 100%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin: 0px;
+}
+
+.sidebar-hook
+{
+  float: right;
+  width: 100%;
+  margin-right: 0px;
+}
+
+.border
+{
+  float: right;
+  width: 100%;
+  height: 1px;
+  background-image:
+      linear-gradient(to right, rgba(0,0,0,0), grey)
+  ;
+  margin-right: 0px;
+}
+
+.sidebar-link:hover
+{
+  background-image:
+	linear-gradient(to right, rgba(0,0,0,0), rgba(25,25,25,1))
+  ;
+  color:#ffffff;
+}
+
 tw-sidebar tw-icon.redo{
   display: none;
 }
-
-
-
-
-
-
-
 
 
 
@@ -71,6 +111,21 @@ GlobalFunc.removeInvisibleSidebarObj = function(){
 
 GlobalFunc.hideEntireSidebar = function(){
 	$('tw-sidebar').hide();
+}
+
+GlobalFunc.formatSidebarElements = function(){
+	$('tw-sidebar').children("tw-hook").each(function(){
+		$(this).attr("class", "sidebar-hook");
+		
+		$(this).children().each(function(){
+			$(this).remove("br");
+		  $(this).remove("tw-expression");
+		  $(this).remove("tw-hook");
+		});
+		$(this).children("tw-link").each(function(){
+			$(this).attr("class", "sidebar-link");
+		});
+	});
 }
 
 GlobalFunc.determineDayOrNight = function(){
@@ -132,6 +187,7 @@ window.onload = function() {
 		}
 	}
 }
+
 
 
 
@@ -599,7 +655,7 @@ It was always sunny here, strangely.&lt;br&gt;&lt;br&gt;
 
 (set: $fieldBeen to 1)
 (set: $currentLocation to &quot;fields&quot;)
-}</tw-passagedata><tw-passagedata pid="16" name="City Life" tags="" position="2209.3333333333335,1949" size="100,100">{
+}</tw-passagedata><tw-passagedata pid="16" name="City Life" tags="" position="2209,1949" size="100,100">{
 &lt;h2&gt;Beep Boop. Under Construction&lt;/h2&gt;&lt;br&gt;&lt;br&gt;
 
 [[Go Back-&gt;Journey Begin]]
@@ -802,20 +858,43 @@ Who attacked me?&lt;br&gt;&lt;br&gt;
 (link: &quot;I&#39;m dying, what does that matter?&quot;)[(set: $defeatist to 1)(goto: &quot;Questioning&quot;)]&lt;br&gt;
 (link: &quot;Someone more desperate than me&quot;)[(set: $understanding to 1)(goto: &quot;Questioning&quot;)]&lt;br&gt;
 (link: &quot;An evil person&quot;)[(set: $hubris to 1)(goto: &quot;Questioning&quot;)]
-}</tw-passagedata><tw-passagedata pid="23" name="Sidebar UI" tags="header" position="453,117" size="100,100">{
+}</tw-passagedata><tw-passagedata pid="23" name="Sidebar UI" tags="header" position="453,115.33333333333333" size="100,100">{
+(append: ?Sidebar)[&lt;div class=&quot;border&quot;&gt;&lt;/div&gt;]
 (append: ?Sidebar)[
-	(link:&quot;Save&quot;)[
-  		(if:(save-game:&quot;Only Version&quot;))[Position saved!]
-		(else: )[Sorry, save failed!]
-	]&lt;br&gt;
-	(if: (saved-games:) contains &quot;Only Version&quot;)[
-		(link: &quot;Load&quot;)[(load-game:&quot;Only Version&quot;)]&lt;br&gt;
+	(link-repeat: &quot;Save&quot;)[
+  		(if:(save-game:&quot;Only Version&quot;))[
+			&lt;script&gt;
+				window.alert(&quot;Game Saved!&quot;);
+				GlobalFunc.formatSidebarElements();
+			&lt;/script&gt;
+		]
+		(else: )[
+			&lt;script&gt;
+				window.alert(&quot;Save Failed :(&quot;);
+				GlobalFunc.formatSidebarElements();
+			&lt;/script&gt;
+		]
 	]
-	(link: &quot;Restart&quot;)[(reload:)]
-	
+]
+(append: ?Sidebar)[&lt;div class=&quot;border&quot;&gt;&lt;/div&gt;]
+
+
+(if: (saved-games:) contains &quot;Only Version&quot;)[
+	(append: ?Sidebar)[
+		(link-repeat: &quot;Load&quot;)[(load-game:&quot;Only Version&quot;)]
+	]
+  	(append: ?Sidebar)[&lt;div class=&quot;border&quot;&gt;&lt;/div&gt;]
 ]
 
-&lt;script&gt;GlobalFunc.removeInvisibleSidebarObj();&lt;/script&gt;
+(append: ?Sidebar)[
+	(link-repeat: &quot;Restart&quot;)[(reload:)]
+]
+(append: ?Sidebar)[&lt;div class=&quot;border&quot;&gt;&lt;/div&gt;]
+
+&lt;script&gt;
+	GlobalFunc.removeInvisibleSidebarObj();
+	GlobalFunc.formatSidebarElements();
+&lt;/script&gt;
 }</tw-passagedata><tw-passagedata pid="24" name="Activate Auto Variables" tags="header" position="585,114" size="100,100">&lt;script&gt;GlobalFunc.autoDisableUndo();&lt;/script&gt;
 &lt;script&gt;CryptFunc.returnDigitalClockTime();&lt;/script&gt;
 &lt;script&gt;GlobalFunc.determineDayOrNight();&lt;/script&gt;</tw-passagedata><tw-passagedata pid="25" name="Soot Spread" tags="" position="2554,2289" size="100,100">{
