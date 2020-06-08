@@ -85,6 +85,8 @@ tw-sidebar tw-icon.redo{
 
 
 
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">if (!window.GlobalFunc || !window.CryptFunc) {
 	window.GlobalFunc = {};
 	window.CryptFunc = {};
@@ -187,6 +189,8 @@ window.onload = function() {
 		}
 	}
 }
+
+
 
 
 
@@ -630,16 +634,26 @@ After a few minutes of running, I could just barely make out a city in the dista
 
 I gradually slowed down before coming to a stop. It was time to decide what to do.&lt;br&gt;&lt;br&gt;
 ] (else:)[
+(if: $cameFromCityLife is 1)[
+(set: $cameFromCityLife to 0)
+Using the wagon, the trip from the city back to the green fields went surprisingly quickly. Unfortunately, on my arrival, the spell seemed to refuse to travel further. The limitations on this wagon seemed tied to the city&#39;s location somehow. Perhaps it was drawing from some sort of power source?&lt;br&gt;&lt;br&gt;
+
+](else:)[
 After a significant amount of time spent travelling, I found myself in the green field again. Blades of grass rolled all around me, creating ripple effects of mirrored sunlight, conducting symphonies of a stochastic nature.&lt;br&gt;&lt;br&gt;
 
 It was always sunny here, strangely.&lt;br&gt;&lt;br&gt;
+]
 ]
 
 
 
 
+(if: $cityLifeBeen is 0)[
+[[Go north-&gt;City Travel]]&lt;br&gt;
+](else:)[
+[[Head straight to the city by wagon-&gt;City Life]]&lt;br&gt;
+]
 
-[[Go to the city (north)-&gt;City Life]]&lt;br&gt;
 
 (if: $cryptBeen is 1)[[[Go to the mineshaft (east)-&gt;Crazy Crypt]]]
 (else:)[[[Go east-&gt;Crazy Crypt]]]&lt;br&gt;
@@ -654,11 +668,20 @@ It was always sunny here, strangely.&lt;br&gt;&lt;br&gt;
 
 
 (set: $fieldBeen to 1)
+(set: $fromField to 1)
 (set: $currentLocation to &quot;fields&quot;)
-}</tw-passagedata><tw-passagedata pid="16" name="City Life" tags="" position="2209,1949" size="100,100">{
-&lt;h2&gt;Beep Boop. Under Construction&lt;/h2&gt;&lt;br&gt;&lt;br&gt;
+}</tw-passagedata><tw-passagedata pid="16" name="City Travel" tags="" position="2027,1827.3333333333335" size="100,100">{
+Urged as if by some lackadaisical force, I travelled north.&lt;BR&gt;&lt;BR&gt;
 
-[[Go Back-&gt;Journey Begin]]
+Walking for so long in the shining fields of grass, it was hard to tell if I was making any progress. Small solace was gained by the fact that I could watch my hooves as they took steps forward. Microscopic actions amidst the scale of the fields that stretched from horizon to horizon.&lt;BR&gt;&lt;BR&gt;
+
+A sudden wave of sentimentality washed over me. I couldn&#39;t help but note that no matter how bleak the situation, it would make a good story. A single pony, isolated in a world of unimaginable scale. Its gift of mortality stolen.&lt;BR&gt;&lt;BR&gt;
+
+Soon, even those thoughts faded away as my mind grew numb from the monotony. The shining grass seemed to turn grey in the face of my boredom and general existential fatigue.&lt;BR&gt;&lt;BR&gt;
+
+Perhaps I could rest awhile, the journey could wait after all.&lt;BR&gt;&lt;BR&gt;
+
+[[Zzzzzzz...-&gt;City Life]]
 }</tw-passagedata><tw-passagedata pid="17" name="Crazy Crypt" tags="" position="2365,2144" size="100,100">{
 
 (if: $cameFromUnderwater is 1) [
@@ -858,7 +881,7 @@ Who attacked me?&lt;br&gt;&lt;br&gt;
 (link: &quot;I&#39;m dying, what does that matter?&quot;)[(set: $defeatist to 1)(goto: &quot;Questioning&quot;)]&lt;br&gt;
 (link: &quot;Someone more desperate than me&quot;)[(set: $understanding to 1)(goto: &quot;Questioning&quot;)]&lt;br&gt;
 (link: &quot;An evil person&quot;)[(set: $hubris to 1)(goto: &quot;Questioning&quot;)]
-}</tw-passagedata><tw-passagedata pid="23" name="Sidebar UI" tags="header" position="453,115.33333333333333" size="100,100">{
+}</tw-passagedata><tw-passagedata pid="23" name="Sidebar UI" tags="header" position="453,115" size="100,100">{
 (append: ?Sidebar)[&lt;div class=&quot;border&quot;&gt;&lt;/div&gt;]
 (append: ?Sidebar)[
 	(link-repeat: &quot;Save&quot;)[
@@ -1464,8 +1487,109 @@ My body asked for another breath. I indulged it. And again, water proved satisfa
 
 (set: $hasGills to 1)
 
-}</tw-passagedata><tw-passagedata pid="48" name="meetingWithCelestia" tags="" position="2206,2464" size="100,100">{
-Double-click this passage to edit it.
+}</tw-passagedata><tw-passagedata pid="48" name="meetingWithCelestia" tags="" position="2202,2487" size="100,100">{
+&lt;h2&gt;Beep Boop. Under Construction&lt;/h2&gt;&lt;br&gt;&lt;br&gt;
+
+[[Go Back-&gt;Royal City]]
+}</tw-passagedata><tw-passagedata pid="49" name="City Life" tags="" position="2254.333333333333,1656.6666666666667" size="100,100">{
+
+(if: $cityLifeBeen is 0)[
+I woke up as the ground below me shifted and occasionally bumped upward. Confused, I opened my eyes and made out three blurry figures sitting next to me. One of them addressed me.&lt;BR&gt;&lt;BR&gt;
+
+&quot;Hey you, you&#39;re finally awake.&quot;&lt;BR&gt;&lt;BR&gt;
+
+Resigned to the loneliness of my previous travels I just blinked, unsure how to process the fact that a creature was talking to me.&lt;BR&gt;&lt;BR&gt;
+
+&quot;You were trying to make it to the city weren&#39;t you? Crazy bastard.&quot;&lt;BR&gt;&lt;BR&gt;
+
+The epithet caught my attention and my vision cleared. A pony with brown mane, light brown fur, but eyes the light of the sun was looking at me. He seemed to be the one trying to get my attention.&lt;BR&gt;&lt;BR&gt;
+
+I responded, &quot;Celestia dropped me in those grassy fields you saw me sleeping in. I just wanted to see if there was anything further north.&quot;&lt;BR&gt;&lt;BR&gt;
+
+The pony in front of me squinted his eyes critically, part of his bright irises obscured. &quot;Well I think you might&#39;ve veered off course a bit. The burrows is north, but that&#39;s no place for a sane pony. Only the ones driven mad by ambition. You&#39;re lucky that your sense of direction is all whack, almost as if you were driven by some divine providence.&quot;&lt;BR&gt;&lt;BR&gt;
+
+I chuckled.&lt;BR&gt;&lt;BR&gt;
+
+&quot;Why are you laughing?&quot; Then he chuckled, &quot;Oh.&quot;&lt;BR&gt;&lt;BR&gt;
+
+It was so easy, I found myself warming up to this pony. &quot;What&#39;s your name?&quot;&lt;BR&gt;&lt;BR&gt;
+
+&quot;Brightfly.&quot; He looked at the other two ponies. &quot;This one&#39;s Giggleshits,&quot; he said, pointing to a muscular pony with opal eyes, black mane, and grey fur.&lt;BR&gt;&lt;BR&gt;
+
+&quot;Gigglepick you funny bunny,&quot; Gigglepick coyly remarked. He did not sound like a muscular pony at all.&lt;BR&gt;&lt;BR&gt;
+
+&quot;Right,&quot; Brightfly rolled his eyes. &quot;The other pony,&quot; he said, pointing to the last pony, &quot;is named Tritium.&quot;&lt;BR&gt;&lt;BR&gt;
+
+Tritium wore glasses, which I found suprising in this world, and I could only conclude he sort of fetishized looking like a science nerd. Both his mane and his fur were completely snow white, and his eyes were pink. He was the only pony wearing clothes, and it was a labcoat. &quot;How do you do fellow pony.&quot;&lt;BR&gt;&lt;BR&gt;
+
+&quot;Terribly,&quot; I admitted, feeling kinda bad about offloading my feelings to these strangers. &quot;This world seems nice, but I swear it sucks you dry.&quot;&lt;BR&gt;&lt;BR&gt;
+
+Gigglepick giggled. &quot;That&#39;s one way to describe it.&quot;&lt;BR&gt;&lt;BR&gt;
+
+I blushed a bit, &quot;Not that-&quot;&lt;BR&gt;&lt;BR&gt;
+
+Brightfly interrupted, &quot;I&#39;m pretty sure all of us have felt that one way or another. No shame feeling that way really, you&#39;ll come around soon enough.&quot;&lt;BR&gt;&lt;BR&gt;
+
+I squinted my eyes anxiously, &quot;*Should* I come around?&quot;&lt;BR&gt;&lt;BR&gt;
+
+Gigglepick giggled again.&lt;BR&gt;&lt;BR&gt;
+
+Tritium spoke up, &quot;Oh get off it Gigglepick, we all know what you&#39;re thinking.&quot;&lt;BR&gt;&lt;BR&gt;
+
+&quot;Agreed,&quot; said Brightfly.&lt;BR&gt;&lt;BR&gt;
+
+Gigglepick kept grinning, unfazed.&lt;BR&gt;&lt;BR&gt;
+
+&quot;Anyways,&quot; Brightfly said, staring his buddies down. &quot;Look over there.&quot; He pointed to some uprisings on the horizon. &quot;The city&#39;s coming into view.&quot;&lt;BR&gt;&lt;BR&gt;
+
+The speed a which the buildings grew from a distance suprised me, it did not occur to me how fast we were travelling until I looked at the ground below the wooden wagon. It was all a blur.&lt;BR&gt;&lt;BR&gt;
+
+I looked to front of the carriage and saw that nopony was pulling the carriage. &quot;What?&quot;&lt;BR&gt;&lt;BR&gt;
+
+This time, Tritium laughed, voice cackling nasally. &quot;Amazing isn&#39;t it?! That&#39;s one of the spells of my own creation, the auto driving horse wagon pulling locomotion machine.&quot;&lt;BR&gt;&lt;BR&gt;
+
+&quot;ADHWPLM for short.&quot; I remarked dryly.&lt;BR&gt;&lt;BR&gt;
+
+&quot;Precisely,&quot; he said, grinning wistfully. &quot;You probably think the name&#39;s stupid, but it gets the job done, and to that extent I can do whatever I want with my invention.&quot;&lt;BR&gt;&lt;BR&gt;
+
+&quot;Arcanists,&quot; Gigglepick snorted. &quot;You&#39;ll grow to love them.&quot;&lt;BR&gt;&lt;BR&gt;
+
+&quot;Hey!&quot; Tritium snapped, &quot;What have you contributed to society, huh?&quot;&lt;BR&gt;&lt;BR&gt;
+
+It looked like Gigglepick was going to retort, but the wheels of the wagon locked and the whole thing skidded to a halt. We&#39;d stopped inches from a wooden shantytown apartment complex, stacked ten high.&lt;BR&gt;&lt;BR&gt;
+
+The shoddily contructed wood made me think the whole thing was coming down any moment, but the more I observed, the more I came to the realization the thing looked like some kind of organism, tendrils of haphardly nailed together wood pulling on massive trees that overhung from each of the four corners of the apartment complex.&lt;BR&gt;&lt;BR&gt;
+
+It all swayed on occasion, but the clumps of wood seemed to contract at the right moments to self correct the whole thing, like the little twitches of musculature that help keep a pony balanced.&lt;BR&gt;&lt;BR&gt;
+
+&quot;We call this community the Four Corners,&quot; Brightfly said, reliving the newbie&#39;s astonishment through my eyes. &quot;Used to fall down every year or so, but we&#39;ve got it right this time...I think. If you want to join us, know that you&#39;re expected to contribute. If it suits you, you can avoid us and do your own thing, Celestia wont let you get hungry without food nearby.&quot;&lt;BR&gt;&lt;BR&gt;
+
+&quot;Wouldn&#39;t expect anything different,&quot; I remarked. &quot;Go on without me. I appreciate the help until now, but I need to figure a few things out.&quot;&lt;BR&gt;&lt;BR&gt;
+
+Brightfly looked a bit disappointed. &quot;Suit yourself.&quot; Just before leaving, he turned and added, &quot;The wagon&#39;s yours, by the way. We were planning on scrapping it for parts. A few missing two by fours isn&#39;t gonna hurt anything.&quot;&lt;BR&gt;&lt;BR&gt;
+
+(set: $cityLifeBeen to 1)
+
+And then he was gone, Gigglepick and Tritium following after him.&lt;BR&gt;&lt;BR&gt;
+
+](else:)[
+(if: $fromField is 1)[
+The wagon whizzed me over to the city at incredible speeds, individual blades of grass blended into a indistinguishable waves of green as the cool wind blew through my fur. It felt nice that I could at least use the wagon to travel to and from the city.&lt;BR&gt;&lt;BR&gt;
+]
+
+Before long, I found myself in front of the Four Corners. Wooden shanties and lean-to&#39;s stacked on top of each other in concerning configurations. Muscular wooden fibers pulling at parts of the complex from the trees at each corner, miraculously keeping everything afloat.&lt;BR&gt;&lt;BR&gt;
+
+I noticed Gigglepick constructing some sort of table for an old female pony. Ponies were allowed to age in this world?&lt;BR&gt;&lt;BR&gt;
+]
+(set: $fromField to 0)
+(set: $fromFourCorners to 0)
+(set: $cameFromCityLife to 1)
+[[Enter Four Corners-&gt;Four Corners]]&lt;BR&gt;
+[[Back to the Endless Fields-&gt;Journey Begin]]
+}</tw-passagedata><tw-passagedata pid="50" name="Untitled Passage" tags="" position="2416,1897" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="51" name="Four Corners" tags="" position="2236,1348.3333333333333" size="100,100">{
+&lt;h2&gt;Beep Boop. Under Construction&lt;/h2&gt;&lt;br&gt;&lt;br&gt;
+(set: $fromFourCorners to 1)
+[[Go Back-&gt;City Life]]
 }</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
