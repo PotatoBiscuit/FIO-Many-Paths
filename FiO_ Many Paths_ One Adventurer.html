@@ -87,6 +87,7 @@ tw-sidebar tw-icon.redo{
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">if (!window.GlobalFunc || !window.CryptFunc) {
 	window.GlobalFunc = {};
 	window.CryptFunc = {};
@@ -189,6 +190,7 @@ window.onload = function() {
 		}
 	}
 }
+
 
 
 
@@ -612,7 +614,7 @@ He only shrugged.&lt;br&gt;&lt;br&gt;
 
 (link: &quot;How do I get out?&quot;)[(set: $howToGetOut to 1)(goto: &quot;Heaven&quot;)]&lt;br&gt;
 [[...-&gt;Heaven]]
-}</tw-passagedata><tw-passagedata pid="15" name="Journey Begin" tags="" position="2205,2128" size="100,100">{
+}</tw-passagedata><tw-passagedata pid="15" name="Journey Begin" tags="" position="2205,2129.6666666666665" size="100,100">{
 &lt;script&gt;GlobalFunc.disableUndo();&lt;/script&gt;
 (set: $disableUndo to 1)
 
@@ -634,8 +636,8 @@ After a few minutes of running, I could just barely make out a city in the dista
 
 I gradually slowed down before coming to a stop. It was time to decide what to do.&lt;br&gt;&lt;br&gt;
 ] (else:)[
-(if: $cameFromCityLife is 1)[
-(set: $cameFromCityLife to 0)
+(if: $cameFromCityEdge is 1)[
+(set: $cameFromCityEdge to 0)
 Using the wagon, the trip from the city back to the green fields went surprisingly quickly. Unfortunately, on my arrival, the spell seemed to refuse to travel further. The limitations on this wagon seemed tied to the city&#39;s location somehow. Perhaps it was drawing from some sort of power source?&lt;br&gt;&lt;br&gt;
 
 ](else:)[
@@ -648,10 +650,10 @@ It was always sunny here, strangely.&lt;br&gt;&lt;br&gt;
 
 
 
-(if: $cityLifeBeen is 0)[
+(if: $cityEdgeBeen is 0)[
 [[Go north-&gt;City Travel]]&lt;br&gt;
 ](else:)[
-[[Head straight to the city by wagon-&gt;City Life]]&lt;br&gt;
+[[Head straight to the city by wagon-&gt;City Edge]]&lt;br&gt;
 ]
 
 
@@ -670,7 +672,7 @@ It was always sunny here, strangely.&lt;br&gt;&lt;br&gt;
 (set: $fieldBeen to 1)
 (set: $fromField to 1)
 (set: $currentLocation to &quot;fields&quot;)
-}</tw-passagedata><tw-passagedata pid="16" name="City Travel" tags="" position="2027,1827.3333333333335" size="100,100">{
+}</tw-passagedata><tw-passagedata pid="16" name="City Travel" tags="" position="2027,1827" size="100,100">{
 Urged as if by some lackadaisical force, I travelled north.&lt;BR&gt;&lt;BR&gt;
 
 Walking for so long in the shining fields of grass, it was hard to tell if I was making any progress. Small solace was gained by the fact that I could watch my hooves as they took steps forward. Microscopic actions amidst the scale of the fields that stretched from horizon to horizon.&lt;BR&gt;&lt;BR&gt;
@@ -681,7 +683,7 @@ Soon, even those thoughts faded away as my mind grew numb from the monotony. The
 
 Perhaps I could rest awhile, the journey could wait after all.&lt;BR&gt;&lt;BR&gt;
 
-[[Zzzzzzz...-&gt;City Life]]
+[[Zzzzzzz...-&gt;City Edge]]
 }</tw-passagedata><tw-passagedata pid="17" name="Crazy Crypt" tags="" position="2365,2144" size="100,100">{
 
 (if: $cameFromUnderwater is 1) [
@@ -1491,9 +1493,9 @@ My body asked for another breath. I indulged it. And again, water proved satisfa
 &lt;h2&gt;Beep Boop. Under Construction&lt;/h2&gt;&lt;br&gt;&lt;br&gt;
 
 [[Go Back-&gt;Royal City]]
-}</tw-passagedata><tw-passagedata pid="49" name="City Life" tags="" position="2254.333333333333,1656.6666666666667" size="100,100">{
+}</tw-passagedata><tw-passagedata pid="49" name="City Edge" tags="" position="2270.666666666667,1726" size="100,100">{
 
-(if: $cityLifeBeen is 0)[
+(if: $cityEdgeBeen is 0)[
 I woke up as the ground below me shifted and occasionally bumped upward. Confused, I opened my eyes and made out three blurry figures sitting next to me. One of them addressed me.&lt;BR&gt;&lt;BR&gt;
 
 &quot;Hey you, you&#39;re finally awake.&quot;&lt;BR&gt;&lt;BR&gt;
@@ -1568,9 +1570,11 @@ It all swayed on occasion, but the clumps of wood seemed to contract at the righ
 
 Brightfly looked a bit disappointed. &quot;Suit yourself.&quot; Just before leaving, he turned and added, &quot;The wagon&#39;s yours, by the way. We were planning on scrapping it for parts. A few missing two by fours isn&#39;t gonna hurt anything.&quot;&lt;BR&gt;&lt;BR&gt;
 
-(set: $cityLifeBeen to 1)
+(set: $cityEdgeBeen to 1)
 
 And then he was gone, Gigglepick and Tritium following after him.&lt;BR&gt;&lt;BR&gt;
+
+Something caught my eye while they left. Just to the left of the four corners, stood some sort of greek temple, pillars of stone half crumbled, as if it were an exact replica of ancient ruins from the time before.&lt;BR&gt;&lt;BR&gt;
 
 ](else:)[
 (if: $fromField is 1)[
@@ -1580,16 +1584,23 @@ The wagon whizzed me over to the city at incredible speeds, individual blades of
 Before long, I found myself in front of the Four Corners. Wooden shanties and lean-to&#39;s stacked on top of each other in concerning configurations. Muscular wooden fibers pulling at parts of the complex from the trees at each corner, miraculously keeping everything afloat.&lt;BR&gt;&lt;BR&gt;
 
 I noticed Gigglepick constructing some sort of table for an old female pony. Ponies were allowed to age in this world?&lt;BR&gt;&lt;BR&gt;
+
+As ever, to the left of the four corners complex stood a miniature greek temple, old and ruined.&lt;BR&gt;&lt;BR&gt;
 ]
 (set: $fromField to 0)
 (set: $fromFourCorners to 0)
-(set: $cameFromCityLife to 1)
-[[Enter Four Corners-&gt;Four Corners]]&lt;BR&gt;
-[[Back to the Endless Fields-&gt;Journey Begin]]
-}</tw-passagedata><tw-passagedata pid="50" name="Untitled Passage" tags="" position="2416,1897" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="51" name="Four Corners" tags="" position="2236,1348.3333333333333" size="100,100">{
+(set: $cameFromCityEdge to 1)
+[[Enter the four corners-&gt;Four Corners]]&lt;BR&gt;
+[[Walk towards mini greek ruins-&gt;Mini Temple]]&lt;BR&gt;
+[[Back to the endless fields-&gt;Journey Begin]]
+}</tw-passagedata><tw-passagedata pid="50" name="Untitled Passage" tags="" position="2416,1897" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="51" name="Four Corners" tags="" position="2356,1453" size="100,100">{
 &lt;h2&gt;Beep Boop. Under Construction&lt;/h2&gt;&lt;br&gt;&lt;br&gt;
 (set: $fromFourCorners to 1)
-[[Go Back-&gt;City Life]]
+[[Go Back-&gt;City Edge]]
+}</tw-passagedata><tw-passagedata pid="52" name="Mini Temple" tags="" position="2155.666666666667,1442.6666666666667" size="100,100">{
+&lt;h2&gt;Beep Boop. Under Construction&lt;/h2&gt;&lt;br&gt;&lt;br&gt;
+
+[[Go Back-&gt;City Edge]]
 }</tw-passagedata></tw-storydata>
 
 <script title="Twine engine code" data-main="harlowe">"use strict";function _defineProperty(e,t,n){return t in e?Object.defineProperty(e,t,{value:n,enumerable:!0,configurable:!0,writable:!0}):e[t]=n,e}function _toConsumableArray(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}var _slicedToArray=function(){function e(e,t){var n=[],r=!0,i=!1,o=void 0;try{for(var a,s=e[Symbol.iterator]();!(r=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);r=!0);}catch(e){i=!0,o=e}finally{try{!r&&s.return&&s.return()}finally{if(i)throw o}}return n}return function(t,n){if(Array.isArray(t))return t;if(Symbol.iterator in Object(t))return e(t,n);throw new TypeError("Invalid attempt to destructure non-iterable instance")}}(),_typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e};!function(){/**
